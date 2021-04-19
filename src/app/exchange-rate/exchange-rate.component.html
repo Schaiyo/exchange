@@ -2,16 +2,18 @@
     <form [formGroup]="form">
         <h1>Exchange Rate</h1>
         <div>
-            <label>ระบุจำนวนเงิน : </label>
+            <span style="color: red;">* </span><label>ระบุจำนวนเงิน : </label>
             <input type="text" placeholder="0" formControlName="extRate"> 
             <label>EUR</label>
         </div>
+        <p></p>
         <div>
             <label>เลือกประเทศต้องการดูอัตราแลกเปลี่ยน : </label>
             <select id="currencyRate" formControlName="currencyRate">
                 <option *ngFor="let currencyRate of currency" [ngValue]="currencyRate">{{currencyRate}}</option>
             </select>
         </div>
+        <p></p>
         <div>
             <button (click)="convert()">CONVERT</button>
         </div>
@@ -20,5 +22,10 @@
         <h3>
             จำนวนเงิน : {{numCal}} EUR แลกเปลี่ยนเป็นสกุลเงิน {{current}} จะได้ = {{exchange}}
         </h3>
+    </div>
+    <div>
+        <h4 style="color: red;">
+            ** ปัจจุบัน ใช้ API จาก https://exchangeratesapi.io/ Account Free ไม่สามารถเปลี่ยน Base สกุลเงินต้นทางได้ **
+        </h4>
     </div>
 </div>
